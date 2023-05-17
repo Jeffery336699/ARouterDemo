@@ -3,13 +3,15 @@ package com.bj.bs;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+
 import com.alibaba.android.arouter.launcher.ARouter;
+import com.bj.home.HelloService;
 
 /**
  * 组件化架构方案
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_get_frag).setOnClickListener(this);
         findViewById(R.id.btn_go_home_byArgs).setOnClickListener(this);
         findViewById(R.id.btn_test_interceptor).setOnClickListener(this);
+        findViewById(R.id.btn_test_service).setOnClickListener(this);
         tv_msg = findViewById(R.id.tv_msg);
     }
 
@@ -70,6 +73,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .withString("uri", "file:///android_asset/schame-test.html")
                         .navigation();
                 break;
+            // 提供服务测试
+            case R.id.btn_test_service:
+
+                ((HelloService) ARouter.getInstance().build("/yourservicegroupname/hello").navigation()).sayHello("mike");
+                break;
+
         }
     }
 

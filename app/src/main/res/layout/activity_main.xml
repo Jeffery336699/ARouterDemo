@@ -52,4 +52,13 @@
         android:layout_height="45dp"
         android:text="拦截器测试"
         android:gravity="center" />
+
+    <Button
+        android:id="@+id/btn_test_service"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="提供服务"
+        android:gravity="center" />
+
+
 </LinearLayout>

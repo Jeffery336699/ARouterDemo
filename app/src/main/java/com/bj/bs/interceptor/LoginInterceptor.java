@@ -20,7 +20,9 @@ public class LoginInterceptor implements IInterceptor {
         if(TextUtils.isEmpty(uri)){
 
             Log.i("lybj", "uri为空，中断路由");
-            callback.onInterrupt(null);
+            // TODO: 2023/5/16 onInterrupt这个是可以真正中断跳转的
+//            callback.onInterrupt(null);
+            callback.onContinue(postcard);
         }else {
 
             Log.i("lybj", "拦截器执行，uri不为空，继续执行吧");
